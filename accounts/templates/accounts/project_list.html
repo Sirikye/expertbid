@@ -1,0 +1,21 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+  {% for message in messages %}
+    <p>{{message}}</p>
+  {% endfor %}
+
+  <h1>All Projects</h1>
+  
+  {% for project in projects_list %}
+    <div>
+      <a href="{% url 'project_detail' project.id %}">
+        <h3>{{project.title}}</h3>
+      </a>
+      <p>{{project.text}}</p>
+      <hr>
+      <h4>Client Info:</h4>
+      <p>Name: {{project.client.username}}</p>
+    </div>
+  {% endfor %}
+{% endblock content %}

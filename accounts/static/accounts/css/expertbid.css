@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Uchen&display=swap');
+
+
+:root{
+  --bg-dark: #008998;
+
+  --bg-light: #ededed;
+  --bg-dark-900: #000000;
+  --bg-light-100: #dddddd;
+  --bg-black-50: #eff0f4;
+  --text-dark-900: #000000;
+  --text-dark-700: #555555;
+  --text-dark-600: #666666;
+  --text-dark-300: #bbbbbb;
+  --text-color-004: #f0fff0;
+  --font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --outer-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
+  --outer-shadow-1: 3px 3px 3px #036868, -3px -3px 3px #03adad;
+  --inner-shadow-1: inset 3px 3px 3px #036868, inset -3px -3px 3px #03adad;
+  --outer-shadow-0: 0 0 0 #d0d0d0, 0 0 0 #f8f8f8;
+  --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
+  --inner-shadow-0: inset 0 0 0 #d0d0d0, inset 0 0 0 #f8f8f8;
+}
+
+/*---------------------
+  GENERAL STYLES
+----------------------*/
+body{
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #383838;
+  background-color: var(--bg-black-50);
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: var(--font-family);
+}
+
+.section-title{
+  padding: 15px 0;
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 0 30px;
+}
+
+.section-title h3{
+  text-align: center;
+  text-transform: uppercase;
+  transition: all .3s ease-in;
+  font-size: 26px;
+  font-weight: 600 ;
+  color: var(--bg-dark);
+}
+
+
+.auth-btn{
+  text-decoration: none;
+  color: var(--bg-dark);
+  font-weight: 600 !important;
+  font-size: 20px;
+  padding: 20px 20px;
+  box-shadow: var(--outer-shadow);
+  border-radius: 30px;
+  width: 200px;
+  height: auto;
+  text-align: center;
+  transition: all .3s ease-in;
+}
+
+.auth-btn:hover{
+  color: var(--bg-dark);
+  box-shadow: var(--inner-shadow);
+  text-transform: uppercase;
+  transition: all .3s ease-in;
+}
+
+/*-------------------------------
+  NAVBAR STYLES
+--------------------------------*/
+
+.dropdown-menu{
+  background-color: var(--bg-black-50);
+}
+
+.navbar-brand{
+  font-weight: 700;
+  font-size: 28px;
+  font-style: italic;
+  color: var(--bg-dark) !important;
+  text-transform: capitalize !important;
+}
+
+/*--------------------------------------
+  Home section
+--------------------------------------*/
+
+.home-section{
+  min-height: 80vh;
+  padding: 80px 0 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-section .content-section{
+  display: flex;
+}
+
+.home-section .content-section .home-info{
+  flex: 0 0 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.home-section .content-section .home-info .section-content{
+  
+  padding: 30px 0;
+  line-height: 60px;
+}
+
+.home-section .content-section .home-info .section-content h1{
+  color: var(--text-dark-700);
+  font-size: 28px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.home-section .content-section .home-info .section-content p{
+  color: var(--text-dark-600);
+  font-size: 18px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.home-section .content-section .home-info .section-content .auth-btn{
+  border-radius: 30px;
+  padding: 10px 15px;
+  font-size: 18px;
+  background-color: var(--bg-dark);
+  color: var(--bg-black-50);
+  box-shadow: var(--outer-shadow-0);
+}
+
+.home-section .content-section .home-info .section-content .auth-btn:hover{
+  box-shadow: var(--inner-shadow-0);
+}
+
+
+.home-section .content-section .home-img{
+  flex: 0 0 40%;
+}
+
+.home-section .content-section .home-img .section-img{
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  /*line-height: 400px;*/
+  border-radius: 50% 5px 5px 50%;
+  padding: 15px;
+  box-shadow: var(--inner-shadow);
+}
+
+.home-section .content-section .home-img .section-img img{
+  width: 100%;
+  height: 100%;
+  border: 15px solid var(--bg-black-50);
+  border-radius: 50% 5px 5px 50%;
+  box-shadow: var(--outer-shadow);
+}
+
+/*------------------------------------
+  Authentication Styles
+-------------------------------------*/
+
+.auth-section{
+  min-height: 100vh;
+  padding: 80px 0 80px;
+}
+
+.auth-section .content-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--outer-shadow);
+  border-radius: 5px;
+  padding: 30px 0;
+  margin: 0 0 10px;
+}
+
+.auth-section .content-section .auth-content{
+  flex: 0 0 80%;
+  max-width: 80%;
+  height: auto;
+  padding: 15px 10px;
+
+}
+
+.auth-section .content-section .auth-content h4{
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 15px;
+  color: var(--text-dark-600);
+}
+.auth-section .content-section .auth-content p{
+  line-height: 1.5;
+  text-align: justify;
+  margin: 0 0 15px;
+  color: var(--text-dark-600);
+}
+
+.auth-section .content-section .auth-content .content-text{
+  margin-top: 10px;
+}
+
+/*-------------------------------
+  SIGN UP PAGE
+--------------------------------*/
+.auth-section .content-section .auth-content .form-group{
+  
+  padding: 10px 5px;
+}
+
+.auth-section .content-section .auth-content .form-group label{
+  font-size: 18px;
+  color: var(--text-dark-600);
+  font-weight: 500;
+}
+
+.auth-section .content-section .auth-content .form-group .form-control{
+  font-size: 16px;
+  padding: 10px;
+  outline: none;
+  background-color: var(--bg-black-50);
+}
+
+.auth-section .content-section .auth-content .form-group .form-control:focus{
+  
+  outline: none;
+  box-shadow: var(--inner-shadow);
+  border: none;
+}
+
+
+.auth-section .content-section .auth-content button{
+  border: none;
+  outline: none;
+}
+
+/*-----------------------------------------
+  Login
+-----------------------------------------*/
+
+.auth-section .content-section .auth-content .login-footer{
+  margin-bottom: 5px;
+  padding: 15px 5px;
+  display: flex;
+}
+
+.auth-section .content-section .auth-content .login-footer .remember-me{
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.auth-section .content-section .auth-content .login-footer .remember-me label{
+  font-size: 18px;
+  color: var(--text-dark-600);
+  font-weight: 500;
+}
+
+.auth-section .content-section .auth-content .login-footer .forgot-password{
+  flex: 0 0 50%;
+  max-width: 50%;
+  text-align: right;
+}
+.auth-section .content-section .auth-content .login-footer .forgot-password a{
+  font-weight: 500;
+  color: var(--text-dark-600);
+}
+
+
+
+/*-----------------------------------------
+  DASHBOARD
+-----------------------------------------*/
+
+.project-section{
+  min-height: 100vh;
+  padding: 30px 0 30px;
+}
+
+.project-section .row{
+  max-width: 80%;
+  margin: auto;
+}
+
+.project-section .action-section{
+  margin-bottom: 10px;
+  display: flex;
+
+}
+
+.project-section .action-section .section-title{
+  padding: 10px;
+  margin: 0;
+  flex: 0 0 70%;
+}
+
+.project-section .action-section .section-title h1{
+  color: var(--text-dark-700);
+  font-weight: 600;
+  font-size: 28px;
+  text-transform: capitalize;
+}
+
+.project-section .action-section .add-btn{
+  flex: 0 0 30%;
+  position: relative;
+
+}
+
+.project-section .action-section .add-btn .action-btn{
+  padding: 10px 15px;
+  background-color: var(--bg-dark);
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #f0fff0;
+  font-weight: 400;
+  margin-top: 20px;
+  position: absolute;
+  top: -20%;
+  left: calc(20% - 15px);
+}
+
+.project-section .project-item{
+  margin: 0;
+  border: 1px solid var(--bg-light-100);
+  padding: 25px;
+  border-radius: 5px;
+}
+
+/*------------------------------
+Project Header
+------------------------------*/
+
+.project-section .project-item .project-header{
+  display: flex;
+}
+
+.project-section .project-item .project-header .project-title{
+  flex: 0 0 60%;
+  padding: 0;
+  margin: 0;
+}
+
+.project-section .project-item .project-header .project-title a{
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--text-dark-700);
+  font-weight: 500;
+  padding: 0 15px;
+}
+
+.project-section .project-item .project-header .project-title a:hover{
+  color: var(--bg-dark);
+  transition: all .5s ease;
+}
+
+.project-section .project-item .project-header .project-title .text-muted{
+  font-size: 14px;
+  padding: 0 0 0 20px;
+}
+
+.project-section .project-item .project-header .action-btn-section{ 
+  flex: 0 0 40%;
+}
+
+.project-section .project-item .project-header .action-btn-section .action-section{
+  display: flex;
+  list-style: none;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-section .project-item .project-header .action-btn-section .action-section .action-item{
+  margin: 0 5px;
+}
+
+.project-section .project-item .project-header .action-btn-section .action-section .action-item .action-btn{
+  padding: 10px 15px;
+  background-color: var(--bg-dark);
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #f0fff0;
+  font-weight: 400;
+}
+
+.project-section .project-item .detail-row{
+  display: flex;
+  margin: 0 0 10px 0;
+}
+
+.project-section .project-item .project-detail .detail-row .detail-row-item{
+  flex: 0 0 33.3%;
+}
+
+.project-section .project-item .project-detail .detail-row .item-footer a{
+  text-decoration: none;
+  padding: 15px;
+  color: var(--text-dark-600);
+}
+
+.project-section .project-item .detail-row .item-footer a:hover{
+  color: var(--text-dark-700);
+  font-size: 16px;
+}
+
+.project-section .project-item .detail-row .detail-row-item .item-title{
+  padding: 5px 15px;
+}
+
+.project-section .project-item .detail-row .detail-row-item .item-title h4, p{
+  padding: 0;
+  margin: 0;
+  color: var(--text-dark-600);
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.project-section .project-item .detail-row .detail-row-item .item-title h4{
+  font-weight: 500;
+  font-style: italic;
+}
+
+/*-------------------------------------------
+  Project Summary
+-------------------------------------------*/
+
+.project-section .project-item .project-summary{
+  padding: 0 15px;
+
+}
+
+.project-section .project-item .project-summary .content-section{
+  margin: 0 0 5px;
+}
+
+.project-section .project-item .project-summary .content-section pre{
+  color: var(--text-dark-600);
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 5px 0;
+  margin: 0;
+}
+
+
+.project-section .project-item .project-footer{
+  background-color: salmon;
+}

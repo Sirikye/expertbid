@@ -1,0 +1,35 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if request.user.is_client %}
+  <h1>Recieved Proposals</h1>
+  
+  {% for proposal in proposals %}
+    <div>
+      {% if request.user == proposal.project.client %}
+        <a href="{% url 'proposal_detail' proposal.id %}">
+          <h3>{{proposal.project.title}} by {{ proposal.author }}</h3>
+        </a>
+        <p>{{ proposal.body }}</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% elif request.user.is_provider %}
+  {% if proposals %}
+    {% for proposal in proposals %}
+      {% if request.user == proposal.author %}
+        <div>
+          <a href="{% url 'proposal_detail' proposal.id %}">
+            <h3>{{proposal.project.title}} by {{ proposal.author }}</h3>
+          </a>
+          <p>{{ proposal.body }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <p>You havent sent out any proposals yet!</p>
+  {% endif %}
+{% endif %}
+{% endblock content %}

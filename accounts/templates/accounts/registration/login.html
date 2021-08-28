@@ -1,0 +1,113 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="auth-section">
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h3 >Login</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="content-section">
+          <div class="auth-content">
+            <h4>client login</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor condimentum 
+            pretium. Nam semper sit amet leo vel lacinia.</p>
+            <div class="d-grid gap-2 d-md-flex">
+              <a class="auth-btn" href="{% url 'user_login' %}">Login</a>
+            </div>
+
+            <hr>
+            <div class="content-text">
+              <p>Don't have an account? <a href="{% url 'client_signup' %}">Sign Up</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="content-section">
+          <div class="auth-content">
+            <h4>Login & Work</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor condimentum 
+            pretium. Nam semper sit amet leo vel lacinia.</p>
+            <div class="d-grid gap-2 d-md-flex">
+              <a class="auth-btn" href="{% url 'user_login' %}">Login</a>
+            </div>
+            <hr>
+            <div class="content-text">
+              <p>Create your account here? <a href="{% url 'provider_signup' %}">Register</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="main-container">
+  <div class="page-header">
+    <h1>Login</h1>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+      <div class="content-section">
+        <div class="content-header">
+          <h4>Client login</h4>
+        </div>
+        
+        <div class="content-text mb-2">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor condimentum pretium. 
+            Nam semper sit amet leo vel lacinia. 
+          </p>
+        </div>
+        
+        <div class="d-grid gap-2 d-md-flex">
+          <a class="btn btn-primary shadow" href="{% url 'user_login' %}">Login</a>
+        </div>
+        
+        <hr>
+        <div class="content-text">
+          <p><a class='expert-link' href="{% url 'signup' %}">Register</a> your free trial account today!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="content-section">
+        <div class="content-header">
+          <h4>Freelancer login</h4>
+        </div>
+        <div class="content-text mb-2">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor condimentum pretium. 
+            Nam semper sit amet leo vel lacinia. 
+          </p>
+        </div>
+        <div class="d-grid gap-2 d-md-flex">
+          <a class="btn btn-primary shadow" href="{% url 'user_login' %}">Login</a>
+        </div>
+        <hr>
+        <div class="content-text">
+          <p><a class='expert-link' href="{% url 'signup' %}">Register</a> an account!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="content-section">
+        <p>This is the other part of this page</p>
+      </div>
+      
+    </div>
+  </div>
+  
+
+</div>
+{% endblock content %}

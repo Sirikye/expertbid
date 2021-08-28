@@ -1,0 +1,14 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+  <div>
+    <h1>{{proposal.project.title}}</h1>
+    <p>{{proposal.body}}</p>
+    {% if request.user.is_provider %}
+      <a href="{% url 'proposal_update' proposal.id %}">Edit</a>
+    {% elif request.user.is_client %}
+      <a href="{% url 'project_update' object.id %}">Interview</a>
+      <a href="{% url 'contract_create' proposal.id %}">Award Contract</a>
+    {% endif %}
+  </div>
+{% endblock content %}

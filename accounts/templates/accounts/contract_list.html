@@ -1,0 +1,22 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+{% if contracts %}
+  {% for contract in contracts %}
+    <h2>{{contract.title}}</h2>
+    <p>{{contract.proposal}}</p>
+    <p>{{contact.client}}</p>
+    
+    <p>{{contract.body}}</p>
+    <p>{{contract.date_created}}</p>
+    <hr>
+  {% endfor %}
+{% else %}
+  {% if request.user.is_client %}
+    <h4>No contracts yet!, Create one</h4>
+  {% elif request.user.is_provider %}
+    <h4>No contracts yet!, submit more proposals to stand a chance</h4>
+  {% endif %}
+{% endif %}
+  
+{% endblock content %}

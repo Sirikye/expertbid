@@ -1,0 +1,10 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+  <div>
+    {{contract.proposal}}
+    <hr>
+    <p>{{contract.body}}</p>
+    <p>{{contract.date_created}}</p>
+  </div>
+{% endblock content %}

@@ -1,0 +1,104 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+  {% for message in messages %}
+    <p class="alert alert-success">{{message}}</p>
+  {% endfor %}
+
+  <div class="project-section">
+    <div class="container">
+      <div class="row">
+        <div class="action-section">
+          <div class="section-title">
+            <h1>Projects</h1>
+          </div>
+          <div class="add-btn">
+            <a href="#" class="action-btn">+ Create</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="project-item">
+          <div class="project-header">
+            <div class="project-title">
+              <a href="#">Web Development project</a><span class="text-muted">Posted: 2 hours ago</span>
+            </div>
+            <div class="action-btn-section">
+              <ul class="action-section">
+                <li class="action-item"><a href="#" class="action-btn">Edit</a></li>
+                <li class="action-item"><a href="#" class="action-btn">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-detail">
+            <div class="detail-row">
+              <div class="detail-row-item">
+                <div class="item-title">
+                  <h4>Pay</h4>
+                </div>
+                <div class="item-title">
+                  <p>$100</p>
+                </div>
+              </div>
+              <div class="detail-row-item">
+                <div class="item-title">
+                  <h4>Experience</h4>
+                </div>
+                <div class="item-title">
+                  <p>Expert</p>
+                </div>
+              </div>
+              <div class="detail-row-item">
+                <div class="item-title">
+                  <h4>Duration</h4>
+                </div>
+                <div class="item-title">
+                  <p>1-2 months</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-summary">
+            <div class="content-section">
+              <pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor condimentum pretium. </pre>
+            </div>
+          </div>
+          <hr>
+          <div class="project-detail">
+            <div class="detail-row">
+              <div class="item-footer">
+                <a href="#">
+                  <b>Posted by: </b>Ford Rodrigo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <h1>{{request.user}} Dashboard</h1>
+  <ul>
+    <li><a href="{% url 'create-project' %}">Post a Gig</a></li>
+  </ul>
+  <hr>
+  {% for project in projects %}
+    {% if request.user == project.client %}
+      <div>
+        <a href=" {% url 'project_detail' project.id %} ">
+          <h3>{{project.title}}</h3>
+        </a>
+        <p>{{ project.text }}</p>
+      </div>
+    {% endif %}
+  {% endfor %}
+  
+{% endblock content %}

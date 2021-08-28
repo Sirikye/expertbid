@@ -1,0 +1,14 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+  <h1>{{request.user}} Dashboard</h1>
+
+  {% for provider in service_providers %}
+    {% if provider.is_provider %}
+      <div>
+        <h4><a href="{% url 'provider_profile' provider.id %}">{{provider.username}}</a></h4>
+      </div>
+    {% endif %}
+  {% endfor %}
+  
+{% endblock content %}

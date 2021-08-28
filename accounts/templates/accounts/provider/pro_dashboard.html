@@ -1,0 +1,105 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+  {% for message in messages %}
+    <p class="alert alert-success">{{message}}</p>
+  {% endfor %}
+
+  <div class="main-section shadow mt-4">
+    <div class="search-section">
+      <div class="page-header border-bottom">
+        <div class="mr-2">
+          <h3 class="text-muted">Find Work</h3>
+        </div>
+        
+        <div class="search-bar">
+          <form class="form-inline" method="get">
+            <div class="form-group mb-2">
+              <input type="search" name="search" id="search" class="form-control-sm" placeholder="Search jobs...">
+            </div>
+            <button class="btn btn-outline-info" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <div class="col-md-3">
+        <div class="side-nav">
+          <p>Recomendations</p>
+        </div>
+        
+      </div>
+      <div class="col-md-9">
+        <div class="feed-section">
+          <div class="feed-header">
+            <h3 class="text-center text-muted">Project Feeds</h3>
+          </div>
+            
+          <div class="feed-content">
+            {% for project in projects_list %}
+              <div class="project-container shadow-sm mb-3 p-2 rounded">
+                <a class="container-link" href="{% url 'project_detail' project.id %}">
+                  <div class="project-header border-bottom">
+                    <div class="row">
+                      <div class="col-sm-7">
+                        <h3>{{project.title}}</h3>
+                        <small class="text-muted">Posted on {{ project.date_added}}</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="project-body p-2">
+                    <div class="attr mb-3">
+                      <div class="experience">
+                          <h5>Experience</h5>
+                        <small class="text-muted">Entry</small>
+                      </div>
+                      <div class="budget">
+                        <h5>Budget</h5>
+                        <small class="text-muted">100,000 UGX</small>
+                      </div>
+                    </div>
+                    <pre>{{project.text}}</pre>
+                  </div>
+                </a>
+                <div class="project-footer">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <h5>Project Address</h5>
+                      <span class="text-muted">Country: Uganda</span>
+                      <span class="text-muted">City: Kampala</span>
+                    </div>
+                    <div class="col-md-4">
+                      <h5>Project Duration</h5>
+                      <span class="text-muted">Start Date: {{project.date_added}}</span>
+                      <span class="text-muted">Duration: Atleast 6 months</span>
+                    </div>
+                    <div class="col-md-4">
+                      <h5>Service Providers Needed</h5>
+                      <span class="text-muted">Service Providers: 50+</span>
+                      {% if project.proposals %}
+                        {% if project.proposals.contracts.count > 0 %}
+                          <p><b>Status:</b> Job taken</p>
+                        {% else %}
+                          <p> <b>Status:</b> Available</p>
+                        {% endif %}
+                      {% else %}
+                        <p><b>Status:</b> Submit first proposal</p>
+                      {% endif %}
+                      
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock content %}

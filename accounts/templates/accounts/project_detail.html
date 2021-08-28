@@ -1,0 +1,70 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+  <div class="col-md-9">
+    <div class="project-container p-3">
+      <div class="project-header border-bottom">
+        <div class="row">
+          <div class="col-md-7">
+            <h3>{{project.title}}</h3>
+            <span class="text-muted">
+              Date Posted: {{project.date_added}}
+            </span>
+          </div>
+          <div class="col-md-5 my-3">
+            {% if request.user.is_provider %}
+              <div class="d-grid  gap-2 d-md-flex justify-content-md-end">
+                <a class="btn btn-primary" href="{% url 'create_proposal' project.id %}">Apply</a>
+              </div>
+            {% elif request.user.is_client %}
+            <div class="btn-flex">
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a class="btn btn-primary" href="{% url 'project_update' object.id %}">Update</a>
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a class="btn btn-danger" href="{% url 'project_delete' object.id %}">Delete</a>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <pre>{{project.text}}</pre>
+      </div>
+    </div>
+  <div class="project-footer">
+    {% if project.proposals.all %}
+      {% if request.user.is_provider %}
+        {% if project.proposals.all.count <= 10 %}
+          <p>Submitted proposals: Less than 10 </p>
+        {% elif project.proposals.all.count > 10 and project.proposals.all.count <= 50 %}
+          <p>Submitted proposals: 11 to 50 </p>
+        {% elif project.proposals.all.count > 50 %}
+          <p>Submitted proposals: 50+ </p>
+        {% endif %}
+      {% elif request.user.is_client %}
+        <h4>Proposals</h4>
+        {% for proposal in project.proposals.all %}
+          <div class="proposal">
+            <div class="project-header">
+              <b>{{ proposal.author }} - {{ proposal.date_added }}</b>
+            </div>
+            <div class="project-body">
+              <pre>{{ proposal.body }}</pre>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a href="{% url 'proposal_detail' proposal.id %}">View Detail..</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+  </div>
+
+
+  </div>
+</div>
+{% endblock content %}

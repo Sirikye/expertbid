@@ -1,0 +1,49 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="auth-section">
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h3 >Sign Up</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="content-section">
+          <div class="auth-content">
+          <h4>Find a service provider</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor condimentum 
+          pretium. Nam semper sit amet leo vel lacinia.</p>
+          <div class="d-grid gap-2 d-md-flex">
+            <a class="auth-btn" href="{% url 'client_signup' %}">Find Talent</a>
+          </div>
+
+          <hr>
+          <div class="content-text">
+            <p>Already have an account? <a href="{% url 'user_login' %}">Login</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="content-section">
+          <div class="auth-content">
+            <h4>Register & Work</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor condimentum 
+            pretium. Nam semper sit amet leo vel lacinia.</p>
+            <div class="d-grid gap-2 d-md-flex">
+              <a class="auth-btn" href="{% url 'provider_signup' %}">Find Work</a>
+            </div>
+            <hr>
+            <div class="content-text">
+              <p>Already have an account? <a href="{% url 'user_login' %}">Login</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
